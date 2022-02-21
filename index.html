@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents &#8212; yq  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release Notes" href="changelog.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="changelog.html" title="Release Notes"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">yq  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents</a></li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    #" class="text-logo">yq</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Contents</h2>
+    <div class="sidebar-localtoc">
+      <ul>
+<li><a class="reference internal" href="#">yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a><ul>
+<li><a class="reference internal" href="#preserving-tags-and-styles-using-the-y-yaml-roundtrip-option">Preserving tags and styles using the <code class="docutils literal notranslate"><span class="pre">-Y</span></code> (<code class="docutils literal notranslate"><span class="pre">--yaml-roundtrip</span></code>) option</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xml-support">XML support</a></li>
+<li><a class="reference internal" href="#toml-support">TOML support</a></li>
+<li><a class="reference internal" href="#authors">Authors</a></li>
+<li><a class="reference internal" href="#links">Links</a><ul>
+<li><a class="reference internal" href="#bugs">Bugs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cli-usage">CLI usage</a></li>
+<li><a class="reference internal" href="#id2">Change log</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="#">Docs</a></li>
+              
+              <li>yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="yq-command-line-yaml-xml-toml-processor-jq-wrapper-for-yaml-xml-toml-documents">
+<h1>yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents<a class="headerlink" href="#yq-command-line-yaml-xml-toml-processor-jq-wrapper-for-yaml-xml-toml-documents" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">yq</span>
+</pre></div>
+</div>
+<p>Before using <code class="docutils literal notranslate"><span class="pre">yq</span></code>, you also have to install its dependency, <code class="docutils literal notranslate"><span class="pre">jq</span></code>. See the <a class="reference external" href="https://stedolan.github.io/jq/download/">jq installation instructions</a> for details and directions specific to your platform.</p>
+<p>On macOS, <code class="docutils literal notranslate"><span class="pre">yq</span></code> is also available on <a class="reference external" href="https://brew.sh/">Homebrew</a>: use <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">python-yq</span></code>.</p>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">yq</span></code> takes YAML input, converts it to JSON, and pipes it to <a class="reference external" href="https://stedolan.github.io/jq/">jq</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="nb">input</span><span class="o">.</span><span class="n">yml</span> <span class="o">|</span> <span class="n">yq</span> <span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">bar</span>
+</pre></div>
+</div>
+<p>Like in <code class="docutils literal notranslate"><span class="pre">jq</span></code>, you can also specify input filename(s) as arguments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yq</span> <span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">bar</span> <span class="nb">input</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>By default, no conversion of <code class="docutils literal notranslate"><span class="pre">jq</span></code> output is done. Use the <code class="docutils literal notranslate"><span class="pre">--yaml-output</span></code>/<code class="docutils literal notranslate"><span class="pre">-y</span></code> option to convert it back into YAML:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="nb">input</span><span class="o">.</span><span class="n">yml</span> <span class="o">|</span> <span class="n">yq</span> <span class="o">-</span><span class="n">y</span> <span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">bar</span>
+</pre></div>
+</div>
+<p>Mapping key order is preserved. By default, custom <a class="reference external" href="http://www.yaml.org/spec/1.2/spec.html#id2764295">YAML tags</a> and
+<a class="reference external" href="https://yaml.org/spec/current.html#id2509255">styles</a> in the input are ignored. Use the <code class="docutils literal notranslate"><span class="pre">--yaml-roundtrip</span></code>/<code class="docutils literal notranslate"><span class="pre">-Y</span></code>
+option to preserve YAML tags and styles by representing them as extra items in their enclosing mappings and sequences
+while in JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yq</span> <span class="o">-</span><span class="n">Y</span> <span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">bar</span> <span class="nb">input</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">--width</span></code>/<code class="docutils literal notranslate"><span class="pre">-w</span></code> option to pass the line wrap width for string literals. With <code class="docutils literal notranslate"><span class="pre">-y/-Y</span></code>, files can be edited
+in place like with <code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">-i</span></code>: <code class="docutils literal notranslate"><span class="pre">yq</span> <span class="pre">-yi</span> <span class="pre">.foo=1</span> <span class="pre">*.yml</span></code>. All other command line arguments are forwarded to <code class="docutils literal notranslate"><span class="pre">jq</span></code>. <code class="docutils literal notranslate"><span class="pre">yq</span></code>
+forwards the exit code <code class="docutils literal notranslate"><span class="pre">jq</span></code> produced, unless there was an error in YAML parsing, in which case the exit code is 1.
+See the <a class="reference external" href="https://stedolan.github.io/jq/manual/">jq manual</a> for more details on <code class="docutils literal notranslate"><span class="pre">jq</span></code> features and options.</p>
+<p>Because YAML treats JSON as a dialect of YAML, you can use yq to convert JSON to YAML: <code class="docutils literal notranslate"><span class="pre">yq</span> <span class="pre">-y</span> <span class="pre">.</span> <span class="pre">&lt;</span> <span class="pre">in.json</span> <span class="pre">&gt;</span> <span class="pre">out.yml</span></code>.</p>
+<div class="section" id="preserving-tags-and-styles-using-the-y-yaml-roundtrip-option">
+<h3>Preserving tags and styles using the <code class="docutils literal notranslate"><span class="pre">-Y</span></code> (<code class="docutils literal notranslate"><span class="pre">--yaml-roundtrip</span></code>) option<a class="headerlink" href="#preserving-tags-and-styles-using-the-y-yaml-roundtrip-option" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">-Y</span></code> option helps preserve custom <a class="reference external" href="https://yaml-multiline.info/">string styles</a> and
+<a class="reference external" href="https://camel.readthedocs.io/en/latest/yamlref.html#tags">tags</a> in your document. For example, consider the following
+document (an <a class="reference external" href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> template fragment):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Resources:
+  ElasticLoadBalancer:
+    Type: &#39;AWS::ElasticLoadBalancing::LoadBalancer&#39;
+    Properties:
+      AvailabilityZones: !GetAZs &#39;&#39;
+      Instances:
+        - !Ref Ec2Instance1
+        - !Ref Ec2Instance2
+      Description: &gt;-
+        Load balancer for Big Important Service.
+
+        Good thing it&#39;s managed by this template.
+</pre></div>
+</div>
+<p>Passing this document through <code class="docutils literal notranslate"><span class="pre">yq</span> <span class="pre">-y</span> <span class="pre">.Resources.ElasticLoadBalancer</span></code> will drop custom tags, such as <code class="docutils literal notranslate"><span class="pre">!Ref</span></code>,
+and styles, such as the <a class="reference external" href="https://yaml-multiline.info/">folded</a> style of the <code class="docutils literal notranslate"><span class="pre">Description</span></code> field:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="p">:</span> <span class="n">AWS</span><span class="p">::</span><span class="n">ElasticLoadBalancing</span><span class="p">::</span><span class="n">LoadBalancer</span>
+<span class="n">Properties</span><span class="p">:</span>
+  <span class="n">AvailabilityZones</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="n">Instances</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">Ec2Instance1</span>
+    <span class="o">-</span> <span class="n">Ec2Instance2</span>
+  <span class="n">Description</span><span class="p">:</span> <span class="s1">&#39;Load balancer for Big Important Service.</span>
+
+    <span class="n">Good</span> <span class="n">thing</span> <span class="n">it</span><span class="s1">&#39;&#39;</span><span class="n">s</span> <span class="n">managed</span> <span class="n">by</span> <span class="n">this</span> <span class="n">template</span><span class="o">.</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>By contrast, passing it through <code class="docutils literal notranslate"><span class="pre">yq</span> <span class="pre">-Y</span> <span class="pre">.Resources.ElasticLoadBalancer</span></code> will preserve tags and styles:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Type: &#39;AWS::ElasticLoadBalancing::LoadBalancer&#39;
+Properties:
+  AvailabilityZones: !GetAZs &#39;&#39;
+  Instances:
+    - !Ref &#39;Ec2Instance1&#39;
+    - !Ref &#39;Ec2Instance2&#39;
+  Description: &gt;-
+    Load balancer for Big Important Service.
+
+    Good thing it&#39;s managed by this template.
+</pre></div>
+</div>
+<p>To accomplish this in <code class="docutils literal notranslate"><span class="pre">-Y</span></code> mode, yq carries extra metadata (mapping pairs and sequence values) in the JSON
+representation of your document for any custom tags or styles that it finds. When converting the JSON back into YAML, it
+parses this metadata, re-applies the tags and styles, and discards the extra pairs and values.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-Y</span></code> option is incompatible with jq filters that do not expect the extra information injected into the document
+to preserve the YAML formatting. For example, a jq filter that counts entries in the Instances array will come up with
+4 entries instead of 2. A filter that expects all array entries to be mappings may break due to the presence of string
+metadata keys. Check your jq filter for compatibility/semantic validity when using the <code class="docutils literal notranslate"><span class="pre">-Y</span></code> option.</p>
+</div>
+</div>
+</div>
+<div class="section" id="xml-support">
+<h2>XML support<a class="headerlink" href="#xml-support" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">yq</span></code> also supports XML. The <code class="docutils literal notranslate"><span class="pre">yq</span></code> package installs an executable, <code class="docutils literal notranslate"><span class="pre">xq</span></code>, which
+<a class="reference external" href="https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html">transcodes XML to JSON</a> using
+<a class="reference external" href="https://github.com/martinblech/xmltodict">xmltodict</a> and pipes it to <code class="docutils literal notranslate"><span class="pre">jq</span></code>. Roundtrip transcoding is available with
+the <code class="docutils literal notranslate"><span class="pre">xq</span> <span class="pre">--xml-output</span></code>/<code class="docutils literal notranslate"><span class="pre">xq</span> <span class="pre">-x</span></code> option. Multiple XML documents can be passed in separate files/streams as
+<code class="docutils literal notranslate"><span class="pre">xq</span> <span class="pre">a.xml</span> <span class="pre">b.xml</span></code>. Entity expansion and DTD resolution is disabled to avoid XML parsing vulnerabilities.</p>
+</div>
+<div class="section" id="toml-support">
+<h2>TOML support<a class="headerlink" href="#toml-support" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">yq</span></code> supports <a class="reference external" href="https://toml.io/">TOML</a> as well. The <code class="docutils literal notranslate"><span class="pre">yq</span></code> package installs an executable, <code class="docutils literal notranslate"><span class="pre">tomlq</span></code>, which uses the
+<a class="reference external" href="https://github.com/uiri/toml">toml library</a> to transcode TOML to JSON, then pipes it to <code class="docutils literal notranslate"><span class="pre">jq</span></code>. Roundtrip transcoding
+is available with the <code class="docutils literal notranslate"><span class="pre">tomlq</span> <span class="pre">--toml-output</span></code>/<code class="docutils literal notranslate"><span class="pre">tomlq</span> <span class="pre">-t</span></code> option.</p>
+<div class="admonition-compatibility-note admonition">
+<p class="admonition-title">Compatibility note</p>
+<p>This package’s release series available on PyPI begins with version 2.0.0. Versions of <code class="docutils literal notranslate"><span class="pre">yq</span></code> prior to 2.0.0 are
+distributed by <a class="reference external" href="https://github.com/abesto/yq">https://github.com/abesto/yq</a> and are not related to this package. No guarantees of compatibility are
+made between abesto/yq and kislyuk/yq. This package follows the <a class="reference external" href="http://semver.org/">Semantic Versioning 2.0.0</a>
+standard. To ensure proper operation, declare dependency version ranges according to SemVer.</p>
+</div>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Andrey Kislyuk</p></li>
+</ul>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/kislyuk/yq">Project home page (GitHub)</a></p></li>
+<li><p><a class="reference external" href="https://kislyuk.github.io/yq/">Documentation</a></p></li>
+<li><p><a class="reference external" href="https://pypi.python.org/pypi/yq">Package distribution (PyPI)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/kislyuk/yq/blob/master/Changes.rst">Change log</a></p></li>
+<li><p><a class="reference external" href="https://stedolan.github.io/jq/">jq</a> - the command-line JSON processor utility powering <code class="docutils literal notranslate"><span class="pre">yq</span></code></p></li>
+</ul>
+<div class="section" id="bugs">
+<h3>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h3>
+<p>Please report bugs, issues, feature requests, etc. on <a class="reference external" href="https://github.com/kislyuk/yq/issues">GitHub</a>.</p>
+</div>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>Licensed under the terms of the <a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.</p>
+<a class="reference external image-reference" href="https://github.com/kislyuk/yq/actions"><img alt="https://github.com/kislyuk/yq/workflows/Python%20package/badge.svg" src="https://github.com/kislyuk/yq/workflows/Python%20package/badge.svg" /></a>
+<a class="reference external image-reference" href="https://codecov.io/github/kislyuk/yq?branch=master"><img alt="https://codecov.io/github/kislyuk/yq/coverage.svg?branch=master" src="https://codecov.io/github/kislyuk/yq/coverage.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/yq"><img alt="https://img.shields.io/pypi/v/yq.svg" src="https://img.shields.io/pypi/v/yq.svg" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/yq"><img alt="https://img.shields.io/pypi/l/yq.svg" src="https://img.shields.io/pypi/l/yq.svg" /></a>
+</div>
+</div>
+<div class="section" id="cli-usage">
+<h1>CLI usage<a class="headerlink" href="#cli-usage" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>usage: yq [options] &lt;jq filter&gt; [input file...]
+          [jq_filter] [files ...]
+
+yq: Command-line YAML processor - jq wrapper for YAML documents
+
+yq transcodes YAML documents to JSON and passes them to jq.
+See https://github.com/kislyuk/yq for more information.
+
+positional arguments:
+  jq_filter
+  files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --yaml-output, --yml-output, -y
+                        Transcode jq JSON output back into YAML and emit it
+  --yaml-roundtrip, --yml-roundtrip, -Y
+                        Transcode jq JSON output back into YAML and emit it. Preserve YAML tags and styles by representing them as extra items in their enclosing mappings and sequences while in JSON. This option is incompatible with jq filters that do not expect these extra items.
+  --width WIDTH, -w WIDTH
+                        When using --yaml-output, specify string wrap width
+  --indentless-lists, --indentless
+                        When using --yaml-output, indent block style lists (sequences) with 0 spaces instead of 2
+  --in-place, -i        Edit files in place (no backup - use caution)
+  --version             show program&#39;s version number and exit
+
+jq - commandline JSON processor [version 1.6]
+
+Usage:	jq [options] &lt;jq filter&gt; [file...]
+	jq [options] --args &lt;jq filter&gt; [strings...]
+	jq [options] --jsonargs &lt;jq filter&gt; [JSON_TEXTS...]
+
+jq is a tool for processing JSON inputs, applying the given filter to
+its JSON text inputs and producing the filter&#39;s results as JSON on
+standard output.
+
+The simplest filter is ., which copies jq&#39;s input to its output
+unmodified (except for formatting, but note that IEEE754 is used
+for number representation internally, with all that that implies).
+
+For more advanced filters see the jq(1) manpage (&quot;man jq&quot;)
+and/or https://stedolan.github.io/jq
+
+Example:
+
+	$ echo &#39;{&quot;foo&quot;: 0}&#39; | jq .
+	{
+		&quot;foo&quot;: 0
+	}
+
+Some of the options include:
+  -c               compact instead of pretty-printed output;
+  -n               use `null` as the single input value;
+  -e               set the exit status code based on the output;
+  -s               read (slurp) all inputs into an array; apply filter to it;
+  -r               output raw strings, not JSON texts;
+  -R               read raw strings, not JSON texts;
+  -C               colorize JSON;
+  -M               monochrome (don&#39;t colorize JSON);
+  -S               sort keys of objects on output;
+  --tab            use tabs for indentation;
+  --arg a v        set variable $a to value &lt;v&gt;;
+  --argjson a v    set variable $a to JSON value &lt;v&gt;;
+  --slurpfile a f  set variable $a to an array of JSON texts read from &lt;f&gt;;
+  --rawfile a f    set variable $a to a string consisting of the contents of &lt;f&gt;;
+  --args           remaining arguments are string arguments, not files;
+  --jsonargs       remaining arguments are JSON arguments, not files;
+  --               terminates argument processing;
+
+Named arguments are also available as $ARGS.named[], while
+positional arguments are available as $ARGS.positional[].
+
+See the manpage for more options.
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h1>Change log<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-14-0-2022-02-20">Changes for v2.14.0 (2022-02-20)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-13-0-2021-12-02">Changes for v2.13.0 (2021-12-02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-12-2-2021-06-13">Changes for v2.12.2 (2021-06-13)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-12-1-2021-06-13">Changes for v2.12.1 (2021-06-13)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-12-0-2021-02-05">Changes for v2.12.0 (2021-02-05)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-11-1-2020-09-26">Changes for v2.11.1 (2020-09-26)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-11-0-2020-09-03">Changes for v2.11.0 (2020-09-03)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-10-1-2020-05-11">Changes for v2.10.1 (2020-05-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-10-0-2019-12-23">Changes for v2.10.0 (2019-12-23)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-9-2-2019-11-04">Changes for v2.9.2 (2019-11-04)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-9-1-2019-11-04">Changes for v2.9.1 (2019-11-04)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-9-0-2019-11-04">Changes for v2.9.0 (2019-11-04)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-8-1-2019-10-28">Changes for v2.8.1 (2019-10-28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-8-0-2019-10-25">Changes for v2.8.0 (2019-10-25)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-7-2-2019-01-09">Changes for v2.7.2 (2019-01-09)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-7-1-2018-11-05">Changes for v2.7.1 (2018-11-05)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-7-0-2018-08-04">Changes for v2.7.0 (2018-08-04)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-6-0-2018-04-28">Changes for v2.6.0 (2018-04-28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-5-0-2018-04-02">Changes for v2.5.0 (2018-04-02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-4-1-2018-02-13">Changes for v2.4.1 (2018-02-13)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-4-0-2018-02-08">Changes for v2.4.0 (2018-02-08)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-7-2018-02-07">Changes for v2.3.7 (2018-02-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-6-2018-01-29">Changes for v2.3.6 (2018-01-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-5-2018-01-29">Changes for v2.3.5 (2018-01-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-4-2017-12-26">Changes for v2.3.4 (2017-12-26)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-3-2017-09-30">Changes for v2.3.3 (2017-09-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-2-2017-09-25">Changes for v2.3.2 (2017-09-25)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-1-2017-09-25">Changes for v2.3.1 (2017-09-25)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-3-0-2017-08-27">Changes for v2.3.0 (2017-08-27)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-2-0-2017-07-07">Changes for v2.2.0 (2017-07-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-1-2-2017-06-27">Changes for v2.1.2 (2017-06-27)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-1-1-2017-05-02">Changes for v2.1.1 (2017-05-02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-1-0-2017-05-02">Changes for v2.1.0 (2017-05-02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-0-2-2017-01-16">Changes for v2.0.2 (2017-01-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-0-1-2017-01-14">Changes for v2.0.1 (2017-01-14)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#changes-for-v2-0-0-2017-01-14">Changes for v2.0.0 (2017-01-14)</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="changelog.html" title="next chapter (use the right arrow)">Release Notes</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="changelog.html" title="Release Notes"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">yq  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents</a></li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright Andrey Kislyuk. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

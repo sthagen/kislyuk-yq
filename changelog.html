@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Release Notes &#8212; yq  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents" href="index.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">yq  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Release Notes</a></li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    index.html" class="text-logo">yq</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Contents</h2>
+    <div class="sidebar-localtoc">
+      <ul>
+<li><a class="reference internal" href="#">Release Notes</a></li>
+<li><a class="reference internal" href="#changes-for-v2-14-0-2022-02-20">Changes for v2.14.0 (2022-02-20)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-13-0-2021-12-02">Changes for v2.13.0 (2021-12-02)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-12-2-2021-06-13">Changes for v2.12.2 (2021-06-13)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-12-1-2021-06-13">Changes for v2.12.1 (2021-06-13)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-12-0-2021-02-05">Changes for v2.12.0 (2021-02-05)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-11-1-2020-09-26">Changes for v2.11.1 (2020-09-26)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-11-0-2020-09-03">Changes for v2.11.0 (2020-09-03)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-10-1-2020-05-11">Changes for v2.10.1 (2020-05-11)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-10-0-2019-12-23">Changes for v2.10.0 (2019-12-23)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-9-2-2019-11-04">Changes for v2.9.2 (2019-11-04)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-9-1-2019-11-04">Changes for v2.9.1 (2019-11-04)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-9-0-2019-11-04">Changes for v2.9.0 (2019-11-04)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-8-1-2019-10-28">Changes for v2.8.1 (2019-10-28)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-8-0-2019-10-25">Changes for v2.8.0 (2019-10-25)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-7-2-2019-01-09">Changes for v2.7.2 (2019-01-09)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-7-1-2018-11-05">Changes for v2.7.1 (2018-11-05)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-7-0-2018-08-04">Changes for v2.7.0 (2018-08-04)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-6-0-2018-04-28">Changes for v2.6.0 (2018-04-28)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-5-0-2018-04-02">Changes for v2.5.0 (2018-04-02)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-4-1-2018-02-13">Changes for v2.4.1 (2018-02-13)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-4-0-2018-02-08">Changes for v2.4.0 (2018-02-08)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-7-2018-02-07">Changes for v2.3.7 (2018-02-07)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-6-2018-01-29">Changes for v2.3.6 (2018-01-29)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-5-2018-01-29">Changes for v2.3.5 (2018-01-29)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-4-2017-12-26">Changes for v2.3.4 (2017-12-26)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-3-2017-09-30">Changes for v2.3.3 (2017-09-30)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-2-2017-09-25">Changes for v2.3.2 (2017-09-25)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-1-2017-09-25">Changes for v2.3.1 (2017-09-25)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-3-0-2017-08-27">Changes for v2.3.0 (2017-08-27)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-2-0-2017-07-07">Changes for v2.2.0 (2017-07-07)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-1-2-2017-06-27">Changes for v2.1.2 (2017-06-27)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-1-1-2017-05-02">Changes for v2.1.1 (2017-05-02)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-1-0-2017-05-02">Changes for v2.1.0 (2017-05-02)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-0-2-2017-01-16">Changes for v2.0.2 (2017-01-16)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-0-1-2017-01-14">Changes for v2.0.1 (2017-01-14)</a></li>
+<li><a class="reference internal" href="#changes-for-v2-0-0-2017-01-14">Changes for v2.0.0 (2017-01-14)</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Release Notes</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="release-notes">
+<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="changes-for-v2-14-0-2022-02-20">
+<h1>Changes for v2.14.0 (2022-02-20)<a class="headerlink" href="#changes-for-v2-14-0-2022-02-20" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Support binary and set tags. Fixes #140</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-13-0-2021-12-02">
+<h1>Changes for v2.13.0 (2021-12-02)<a class="headerlink" href="#changes-for-v2-13-0-2021-12-02" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Armor against entity expansion attacks</p></li>
+<li><p>Improve YAML loading performance by using CSafeLoader where available</p></li>
+<li><p>Require PyYAML 5.3.1 or newer</p></li>
+<li><p>Test and release infrastructure improvements</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-12-2-2021-06-13">
+<h1>Changes for v2.12.2 (2021-06-13)<a class="headerlink" href="#changes-for-v2-12-2-2021-06-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Handle -n correctly</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-12-1-2021-06-13">
+<h1>Changes for v2.12.1 (2021-06-13)<a class="headerlink" href="#changes-for-v2-12-1-2021-06-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Do not close fds on child process</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-12-0-2021-02-05">
+<h1>Changes for v2.12.0 (2021-02-05)<a class="headerlink" href="#changes-for-v2-12-0-2021-02-05" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add TOML support and the tomlq CLI utility to access it</p></li>
+<li><p>Drop Python 2.7 support</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-11-1-2020-09-26">
+<h1>Changes for v2.11.1 (2020-09-26)<a class="headerlink" href="#changes-for-v2-11-1-2020-09-26" title="Permalink to this headline">¶</a></h1>
+<p>Parse correctly when empty string is passed as jq_filter</p>
+</div>
+<div class="section" id="changes-for-v2-11-0-2020-09-03">
+<h1>Changes for v2.11.0 (2020-09-03)<a class="headerlink" href="#changes-for-v2-11-0-2020-09-03" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Better handling of jq_filter and files arguments (#102)</p></li>
+<li><p>Create <strong>main</strong>.py (#82)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-10-1-2020-05-11">
+<h1>Changes for v2.10.1 (2020-05-11)<a class="headerlink" href="#changes-for-v2-10-1-2020-05-11" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add support for xmltodict force_list definition for xq CLI (#95)</p></li>
+<li><p>Support explicit doc markers (#93)</p></li>
+<li><p>Ensure proper ordering of help messages (#90)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-10-0-2019-12-23">
+<h1>Changes for v2.10.0 (2019-12-23)<a class="headerlink" href="#changes-for-v2-10-0-2019-12-23" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add support for in-place editing (yq -yi)</p></li>
+<li><p>Add argcomplete integration</p></li>
+<li><p>Docs: Migrate from RTD to gh-pages</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-9-2-2019-11-04">
+<h1>Changes for v2.9.2 (2019-11-04)<a class="headerlink" href="#changes-for-v2-9-2-2019-11-04" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix interrupted release</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-9-1-2019-11-04">
+<h1>Changes for v2.9.1 (2019-11-04)<a class="headerlink" href="#changes-for-v2-9-1-2019-11-04" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix documentation build</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-9-0-2019-11-04">
+<h1>Changes for v2.9.0 (2019-11-04)<a class="headerlink" href="#changes-for-v2-9-0-2019-11-04" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add -Y/–yaml-roundtrip for preserving YAML styles and tags</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-8-1-2019-10-28">
+<h1>Changes for v2.8.1 (2019-10-28)<a class="headerlink" href="#changes-for-v2-8-1-2019-10-28" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Filter out -C and separate commingled yq and jq short options</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-8-0-2019-10-25">
+<h1>Changes for v2.8.0 (2019-10-25)<a class="headerlink" href="#changes-for-v2-8-0-2019-10-25" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Set default block sequence indentation to 2 spaces, –indentless for 0</p></li>
+<li><p>Make main body of yq callable as a library function</p></li>
+<li><p>Test and release infrastructure updates</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-7-2-2019-01-09">
+<h1>Changes for v2.7.2 (2019-01-09)<a class="headerlink" href="#changes-for-v2-7-2-2019-01-09" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Support options introduced in jq 1.6. Fixes #46</p></li>
+<li><p>xq: Re-raise if exception is unrecognized</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-7-1-2018-11-05">
+<h1>Changes for v2.7.1 (2018-11-05)<a class="headerlink" href="#changes-for-v2-7-1-2018-11-05" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>xq: Introduce –xml-dtd and –xml-root. Fixes #37.</p></li>
+<li><p>TOML support is optional and experimental</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-7-0-2018-08-04">
+<h1>Changes for v2.7.0 (2018-08-04)<a class="headerlink" href="#changes-for-v2-7-0-2018-08-04" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>TOML support with the tq executable entry point.</p></li>
+<li><p>Disallow argparse abbreviated options. Fixes #38 on Python 3.5+.</p></li>
+<li><p>Now available in Homebrew as python-yq.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-6-0-2018-04-28">
+<h1>Changes for v2.6.0 (2018-04-28)<a class="headerlink" href="#changes-for-v2-6-0-2018-04-28" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Packaging: Replace scripts with entry-points</p></li>
+<li><p>Packaging: Package the license file</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-5-0-2018-04-02">
+<h1>Changes for v2.5.0 (2018-04-02)<a class="headerlink" href="#changes-for-v2-5-0-2018-04-02" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Parse unrecognized tags instead of dropping them. Fixes #23</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-4-1-2018-02-13">
+<h1>Changes for v2.4.1 (2018-02-13)<a class="headerlink" href="#changes-for-v2-4-1-2018-02-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Ignore unrecognized YAML tags instead of crashing</p></li>
+<li><p>Explicitly disable XML entity expansion and mention in docs</p></li>
+<li><p>xq -x: Raise understandable error on non-dict conversion failure</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-4-0-2018-02-08">
+<h1>Changes for v2.4.0 (2018-02-08)<a class="headerlink" href="#changes-for-v2-4-0-2018-02-08" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Support XML parsing with xmltodict</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-7-2018-02-07">
+<h1>Changes for v2.3.7 (2018-02-07)<a class="headerlink" href="#changes-for-v2-3-7-2018-02-07" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix for the –from-file/-f argument: Re-route jq_filter to files when
+using –from-file. Fixes #19.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-6-2018-01-29">
+<h1>Changes for v2.3.6 (2018-01-29)<a class="headerlink" href="#changes-for-v2-3-6-2018-01-29" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Parse and pass multiple positional-consuming jq args</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-5-2018-01-29">
+<h1>Changes for v2.3.5 (2018-01-29)<a class="headerlink" href="#changes-for-v2-3-5-2018-01-29" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Support jq arguments that consume subsequent positionals (such as
+–arg k v) (#16).</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-4-2017-12-26">
+<h1>Changes for v2.3.4 (2017-12-26)<a class="headerlink" href="#changes-for-v2-3-4-2017-12-26" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Support bare YAML dates and times. Fixes #10</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-3-2017-09-30">
+<h1>Changes for v2.3.3 (2017-09-30)<a class="headerlink" href="#changes-for-v2-3-3-2017-09-30" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Avoid buffering all input docs in memory with no -y</p></li>
+<li><p>End all json.dump output with newlines. Close all input streams.
+Fixes #8. Thanks to &#64;bubbleattic for reporting.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-2-2017-09-25">
+<h1>Changes for v2.3.2 (2017-09-25)<a class="headerlink" href="#changes-for-v2-3-2-2017-09-25" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix test suite on Python 3</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-1-2017-09-25">
+<h1>Changes for v2.3.1 (2017-09-25)<a class="headerlink" href="#changes-for-v2-3-1-2017-09-25" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add support for multiple yaml files in arguments. Thanks to
+&#64;bubbleattic (PR #7)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-3-0-2017-08-27">
+<h1>Changes for v2.3.0 (2017-08-27)<a class="headerlink" href="#changes-for-v2-3-0-2017-08-27" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Handle multi-document streams. Fixes #6</p></li>
+<li><p>Report version via yq –version</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-2-0-2017-07-07">
+<h1>Changes for v2.2.0 (2017-07-07)<a class="headerlink" href="#changes-for-v2-2-0-2017-07-07" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Stringify datetimes loaded from YAML. Fixes #5</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-1-2-2017-06-27">
+<h1>Changes for v2.1.2 (2017-06-27)<a class="headerlink" href="#changes-for-v2-1-2-2017-06-27" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix ResourceWarning: unclosed file</p></li>
+<li><p>Internal: Make usage of loader argument consistent</p></li>
+<li><p>Documentation improvements</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-1-1-2017-05-02">
+<h1>Changes for v2.1.1 (2017-05-02)<a class="headerlink" href="#changes-for-v2-1-1-2017-05-02" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix release script. Release is identical to v2.1.0.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-1-0-2017-05-02">
+<h1>Changes for v2.1.0 (2017-05-02)<a class="headerlink" href="#changes-for-v2-1-0-2017-05-02" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>yq now supports emitting YAML (round-trip YAML support) using “yq
+-y”. Fixes #2.</p></li>
+<li><p>Key order is now preserved in mappings/objects/dictionaries.</p></li>
+<li><p>Passing input files by filename as an argument is now supported (in
+addition to providing data on standard input).</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-0-2-2017-01-16">
+<h1>Changes for v2.0.2 (2017-01-16)<a class="headerlink" href="#changes-for-v2-0-2-2017-01-16" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Test and documentation improvements</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-0-1-2017-01-14">
+<h1>Changes for v2.0.1 (2017-01-14)<a class="headerlink" href="#changes-for-v2-0-1-2017-01-14" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix description in setup.py</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-v2-0-0-2017-01-14">
+<h1>Changes for v2.0.0 (2017-01-14)<a class="headerlink" href="#changes-for-v2-0-0-2017-01-14" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Begin 2.0.0 release series. This package’s release series available
+on PyPI begins with version 2.0.0. Versions of <code class="docutils literal notranslate"><span class="pre">yq</span></code> prior to 2.0.0
+are distributed by <a class="reference external" href="https://github.com/abesto/yq">https://github.com/abesto/yq</a> and are not related
+to this package. No guarantees of compatibility are made between
+abesto/yq and kislyuk/yq. This package follows the
+<code class="docutils literal notranslate"><span class="pre">Semantic</span>&#160;&#160; <span class="pre">Versioning</span> <span class="pre">2.0.0</span> <span class="pre">&lt;http://semver.org/&gt;</span></code>_ standard. To
+ensure proper operation, declare dependency version ranges according
+to SemVer. See the Readme for more information.</p></li>
+</ul>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="index.html" title="previous chapter (use the left arrow)">yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents</a>
+      </div>
+    
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">yq  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Release Notes</a></li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright Andrey Kislyuk. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>
